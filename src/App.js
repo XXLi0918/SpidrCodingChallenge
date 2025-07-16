@@ -268,6 +268,7 @@ function App() {
                       onKeyDown={!showPin ? handleMaskedPinKeyDown : undefined}
                       onBlur={handleBlur}
                       required
+                      autoComplete="off"
                       placeholder=" "
                       maxLength="19"
                       className={`${getInputClass('spidrPin')} ${!showPin ? 'masked-pin' : ''}`}
