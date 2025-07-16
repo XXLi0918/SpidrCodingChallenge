@@ -1,0 +1,296 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700);
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form styling */
+.form-container {
+  background: rgba(71,157,175,.9);
+  padding: 50px 60px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.form-header h2 {
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.form-header p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 300;
+  margin: 15px 0 20px 0;
+}
+
+.form-header::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 20%;
+  height: 2px;
+  background: #ffffff;
+  transform: translateX(-50%);
+  margin-top: 10px;
+}
+
+.interest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* Input styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.form-group{
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-group input {
+  padding: 18px 14px;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  background-color: #4392a2;
+  border: 1px solid #ffffff;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #262728;
+}
+
+/* Label styling */
+.form-group label {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: #4392a2;
+  padding: 0 4px;
+  letter-spacing: 1px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 12px;
+  font-size: 16px;
+  color: #262728;
+}
+
+/* Handle price input */
+.currency-input {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.currency-input input {
+  padding-left: 30px;
+}
+
+.currency-symbol {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.currency-input input:focus ~ .currency-symbol,
+.currency-input input:not(:placeholder-shown) ~ .currency-symbol {
+  opacity: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.pin-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.pin-wrapper input {
+  flex: 1;
+  padding-right: 100px;
+}
+
+.toggle-pin-visibility {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 4;
+  padding-left: 10px;
+}
+
+.masked-pin {
+  color: transparent;          
+  text-shadow: 0 0 0 #fff;   
+  letter-spacing: 2px;
+  caret-color: #fff;      
+}
+
+.masked-pin::placeholder {
+  color: transparent;
+}
+
+
+.submit-btn {
+  background: #4392a2;
+  color: #fff;
+  border: 1.5px solid #ffffff;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn:hover {
+  background: #262728a0;
+  color: #56acbd;
+  border: 1.5px solid #56acbd;
+}
+
+.form-submitted {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; 
+  animation: fadeIn 2s;
+}
+
+.form-submitted h2{
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.form-submitted p{
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin: 10px 0 40px 0;
+}
+
+/* Validation */
+.field.invalid {
+  border-color: #a25343 !important;
+}
+
+.error-msg {
+  color: #a25343;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container {
+  animation: fadeIn 2s;
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 800px) {
+  .form-container {
+    padding: 30px 70px;
+    margin: 20px 50px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .form-header h2 {
+    font-size: 24px;
+  }
+  
+  .form-group input {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+
+  .currency-input input {
+    padding-left: 35px;
+  }
+
+  .submit-btn {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+}
