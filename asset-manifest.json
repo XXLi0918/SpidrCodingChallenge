@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/XXLi0918/SpidrCodingChallenge/static/css/main.b153a9ec.css",
-    "main.js": "/XXLi0918/SpidrCodingChallenge/static/js/main.e050c883.js",
-    "index.html": "/XXLi0918/SpidrCodingChallenge/index.html",
-    "main.b153a9ec.css.map": "/XXLi0918/SpidrCodingChallenge/static/css/main.b153a9ec.css.map",
-    "main.e050c883.js.map": "/XXLi0918/SpidrCodingChallenge/static/js/main.e050c883.js.map"
+    "main.css": "/SpidrCodingChallenge/static/css/main.b153a9ec.css",
+    "main.js": "/SpidrCodingChallenge/static/js/main.e050c883.js",
+    "index.html": "/SpidrCodingChallenge/index.html",
+    "main.b153a9ec.css.map": "/SpidrCodingChallenge/static/css/main.b153a9ec.css.map",
+    "main.e050c883.js.map": "/SpidrCodingChallenge/static/js/main.e050c883.js.map"
   },
   "entrypoints": [
     "static/css/main.b153a9ec.css",
