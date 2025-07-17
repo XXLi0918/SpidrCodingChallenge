@@ -95,7 +95,7 @@ function App() {
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
-    
+
     setTouched((prev) => ({ ...prev, [name]: true }));
     if (name === 'spidrPin' && formData.spidrPin.length === 0) {
       return;
@@ -279,12 +279,22 @@ function App() {
                       onCopy={(e) => !showPin && e.preventDefault()}
                       onPaste={(e) => !showPin && e.preventDefault()}
                       onCut={(e) => !showPin && e.preventDefault()}
-                      readOnly={!showPin}
                     />
                     <label htmlFor="spidrPin">Secret 16-Digit Spidr PIN</label>
                     <span
                       className="toggle-pin-visibility"
-                      onClick={() => setShowPin((prev) => !prev)}
+                      onClick={() => {
+                        setShowPin((prev) => {
+                          const newValue = !prev;
+                          // Revalidate when revealing the pin
+                          if (!prev) {
+                            setTouched((t) => ({ ...t, spidrPin: true }));
+                            const errorMsg = validateField('spidrPin', formData.spidrPin);
+                            setErrors((e) => ({ ...e, spidrPin: errorMsg }));
+                          }
+                          return newValue;
+                        });
+                      }}
                       role="button"
                     >
                       {showPin ? 'Hide Pin' : 'Show Pin'}
