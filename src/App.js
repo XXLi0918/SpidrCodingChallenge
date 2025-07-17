@@ -81,11 +81,11 @@ function App() {
           ? ''
           : 'Please enter a valid phone number.';
       case 'spidrPin': {
-      const realValue = formData.spidrPin;
-      return realValue.length === 16
-        ? ''
-        : 'Please enter a 16-digit pin.';
-    }
+          const realValue = formData.spidrPin;
+          return realValue.length === 16
+            ? ''
+            : 'Please enter a 16-digit pin.';
+      }
       case 'airFryerCost':
         return Number(value) >= 0 ? '' : 'Please enter a valid price.';
       default:
@@ -95,11 +95,15 @@ function App() {
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
-
+    
     setTouched((prev) => ({ ...prev, [name]: true }));
+    if (name === 'spidrPin' && formData.spidrPin.length === 0) {
+      return;
+    }
     const errorMsg = validateField(name, value);
     setErrors((prev) => ({ ...prev, [name]: errorMsg }));
   };
+
 
   const getInputClass = (name) => {
     return touched[name] && errors[name] ? 'field invalid' : 'field';
